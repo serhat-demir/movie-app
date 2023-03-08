@@ -9,7 +9,7 @@ import retrofit2.http.*
 
 interface MovieService {
     @GET("movies")
-    suspend fun getMovies(): Response<ApiResponseWithData<Movie>>
+    suspend fun getMovies(): Response<ApiResponseWithData<List<Movie>>>
 
     @POST("movies")
     suspend fun addMovie(
