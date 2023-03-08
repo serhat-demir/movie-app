@@ -9,10 +9,14 @@ class SharedPrefs {
         const val COL_USER_NAME = "user_name"
         const val COL_USER_PASSWORD = "user_password"
 
-        fun setSharedPreference(context: Context, key: String, value: String) {
+        fun setSharedPreference(context: Context, data: HashMap<String, String>) {
             val sharedPref: SharedPreferences = context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)
             val edit = sharedPref.edit()
-            edit.putString(key, value)
+
+            for ((key, value) in data) {
+                edit.putString(key, value)
+            }
+
             edit.apply()
         }
 
@@ -20,10 +24,14 @@ class SharedPrefs {
             return context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE).getString(key, defaultValue) ?: defaultValue
         }
 
-        fun removeSharedPreference(context: Context, key: String) {
+        fun removeSharedPreference(context: Context, keys: Array<String>) {
             val sharedPref: SharedPreferences = context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)
             val edit = sharedPref.edit()
-            edit.remove(key)
+
+            for (key in keys) {
+                edit.remove(key)
+            }
+
             edit.apply()
         }
     }
