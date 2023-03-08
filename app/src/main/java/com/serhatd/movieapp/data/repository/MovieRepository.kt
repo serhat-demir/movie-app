@@ -1,6 +1,5 @@
 package com.serhatd.movieapp.data.repository
 
-import android.content.Context
 import com.serhatd.movieapp.data.entity.ApiResponse
 import com.serhatd.movieapp.data.entity.ApiResponseWithData
 import com.serhatd.movieapp.data.entity.Movie
@@ -10,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class MovieRepository(private val context: Context, private val service: MovieService) {
+class MovieRepository(private val service: MovieService) {
     suspend fun getMovies(): Response<ApiResponseWithData<List<Movie>>> {
         return withContext(Dispatchers.IO) {
             service.getMovies()
