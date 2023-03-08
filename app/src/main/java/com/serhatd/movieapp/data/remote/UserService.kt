@@ -1,6 +1,6 @@
 package com.serhatd.movieapp.data.remote
 
-import com.serhatd.movieapp.data.entity.ApiResponse
+import com.serhatd.movieapp.data.entity.ApiResponseWithData
 import com.serhatd.movieapp.data.entity.User
 import com.serhatd.movieapp.data.entity.UserRequest
 import retrofit2.Response
@@ -12,10 +12,10 @@ interface UserService {
     @POST("users")
     suspend fun login(
         @Body user: UserRequest
-    ): Response<ApiResponse<User>>
+    ): Response<ApiResponseWithData<User>>
 
     @PUT("users")
     suspend fun changePassword(
         @Body user: UserRequest
-    ): Response<ApiResponse<User>>
+    ): Response<ApiResponseWithData<User>>
 }
