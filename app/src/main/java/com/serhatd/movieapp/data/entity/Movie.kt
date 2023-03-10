@@ -1,6 +1,7 @@
 package com.serhatd.movieapp.data.entity
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Movie(
     @SerializedName("movie_id")
@@ -14,4 +15,4 @@ data class Movie(
 
     @SerializedName("movie_url")
     var movie_url: String
-)
+): Serializable

@@ -9,5 +9,18 @@
         android:id="@+id/moviesFragment"
         android:name="com.serhatd.movieapp.ui.movies.MoviesFragment"
         android:label="fragment_movies"
-        tools:layout="@layout/fragment_movies" />
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/moviesToWatch"
+            app:destination="@id/watchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/watchFragment"
+        android:name="com.serhatd.movieapp.ui.watch.WatchFragment"
+        android:label="WatchFragment"
+        tools:layout="@layout/fragment_watch" >
+        <argument
+            android:name="movie"
+            app:argType="com.serhatd.movieapp.data.entity.Movie" />
+    </fragment>
 </navigation>

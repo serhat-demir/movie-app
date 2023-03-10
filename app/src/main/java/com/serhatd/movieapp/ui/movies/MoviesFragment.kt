@@ -1,12 +1,11 @@
 package com.serhatd.movieapp.ui.movies
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.serhatd.movieapp.MainActivity
 import com.serhatd.movieapp.R
@@ -26,6 +25,7 @@ class MoviesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movies, container, false)
+        (requireActivity() as MainActivity).binding.toolbar.visibility = View.VISIBLE
         (requireActivity() as MainActivity).binding.toolbar.title = getString(R.string.title_movies)
 
         initObservers()

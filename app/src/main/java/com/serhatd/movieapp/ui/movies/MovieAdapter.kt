@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.serhatd.movieapp.R
 import com.serhatd.movieapp.data.entity.Movie
 import com.serhatd.movieapp.databinding.CardMovieBinding
@@ -27,7 +27,8 @@ class MovieAdapter(private val movies: List<Movie>): RecyclerView.Adapter<MovieA
     }
 
     fun navToWatch(view: View, movie: Movie) {
-        Snackbar.make(view, movie.movie_name, Snackbar.LENGTH_SHORT).show()
+        val moviesToWatch = MoviesFragmentDirections.moviesToWatch(movie)
+        Navigation.findNavController(view).navigate(moviesToWatch)
     }
 
     override fun getItemCount(): Int {

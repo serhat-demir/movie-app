@@ -13,13 +13,17 @@
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-
-        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">true</item>
+    </style>
+
+    <!-- hide status bar in watch fragment
+    <style name="WatchFragmentTheme">
+        <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
+    -->
 </resources>
