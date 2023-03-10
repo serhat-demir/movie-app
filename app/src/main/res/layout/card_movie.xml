@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="movieAdapter"
+            type="com.serhatd.movieapp.ui.movies.MovieAdapter" />
+
+        <variable name="movie"
+            type="com.serhatd.movieapp.data.entity.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/cardMovieImgPoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:layout_constraintDimensionRatio="2:3"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="4dp"
+                android:textAlignment="center"
+                android:text="@{movie.movie_name}"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:onClick="@{() -> movieAdapter.navToWatch(cardMovieImgPoster, movie)}"
+                android:text="@string/btn_watch" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

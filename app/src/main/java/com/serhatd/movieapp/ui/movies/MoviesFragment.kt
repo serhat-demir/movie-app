@@ -35,9 +35,7 @@ class MoviesFragment : Fragment() {
     private fun initObservers() {
         viewModel.movies.observe(viewLifecycleOwner) {
             it?.let {
-                for (movie in it) {
-                    Log.e(movie.movie_id.toString(), movie.movie_name)
-                }
+                binding.frgMoviesRecyclerView.adapter = MovieAdapter(it)
             }
         }
 
