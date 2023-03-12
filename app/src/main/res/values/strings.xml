@@ -1,25 +1,36 @@
 <resources>
     <string name="app_name">MovieApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- movies fragment -->
     <string name="title_movies">Movies</string>
     <string name="btn_watch">Watch</string>
+
+    <!-- login fragment -->
     <string name="title_login">Login</string>
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="btn_login">Login</string>
+
+    <!-- user fragment -->
     <string name="title_user">Manage Movies</string>
+
     <string name="hint_new_password">New password</string>
     <string name="dialog_change_pass_title">Change Password</string>
-    <string name="btn_save">Save</string>
-    <string name="btn_cancel">Cancel</string>
-    <string name="btn_edit">Edit</string>
-    <string name="btn_delete">Delete</string>
-    <string name="dialog_delete_movie_title">Delete Movie</string>
-    <string name="dialog_delete_movie_msg">Are you sure to delete this movie?</string>
+
+    <!-- card manage movie -->
+    <string name="dialog_movie_manage_title">Edit Movie</string>
+    <string name="dialog_add_movie_title">Add Movie</string>
+
     <string name="dialog_movie_manage_hint_name">Movie Name</string>
     <string name="dialog_movie_manage_hint_image">Movie Image Url</string>
     <string name="dialog_movie_manage_hint_url">Movie Video Url</string>
-    <string name="dialog_movie_manage_title">Edit Movie</string>
-    <string name="dialog_add_movie_title">Add Movie</string>
+
+    <string name="dialog_delete_movie_title">Delete Movie</string>
+    <string name="dialog_delete_movie_msg">Are you sure to delete this movie?</string>
+
+    <!-- buttons -->
+    <string name="btn_edit">Edit</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>
