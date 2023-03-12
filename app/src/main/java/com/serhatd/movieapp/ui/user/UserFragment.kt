@@ -37,7 +37,13 @@ class UserFragment : Fragment() {
     }
 
     private fun initObservers() {
+        viewModel.movies.observe(viewLifecycleOwner) {
+            it?.let {
+                binding.frgUserRecyclerView.adapter = ManageMovieAdapter(requireContext(), viewModel, it)
+            }
+        }
 
+        viewModel.getMovies()
     }
 
     private fun createMenu() {

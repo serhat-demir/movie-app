@@ -13,4 +13,12 @@
     <string name="dialog_change_pass_title">Change Password</string>
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_delete">Delete</string>
+    <string name="dialog_delete_movie_title">Delete Movie</string>
+    <string name="dialog_delete_movie_msg">Are you sure to delete this movie?</string>
+    <string name="dialog_movie_manage_hint_name">Movie Name</string>
+    <string name="dialog_movie_manage_hint_image">Movie Image Url</string>
+    <string name="dialog_movie_manage_hint_url">Movie Video Url</string>
+    <string name="dialog_movie_manage_title">Edit Movie</string>
 </resources>
