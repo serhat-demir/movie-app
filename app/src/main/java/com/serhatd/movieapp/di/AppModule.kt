@@ -19,8 +19,8 @@ import javax.inject.Singleton
 class AppModule {
     @Singleton
     @Provides
-    fun provideUserRepository(userService: UserService): UserRepository {
-        return UserRepository(userService)
+    fun provideUserRepository(prefs: SharedPrefs, userService: UserService): UserRepository {
+        return UserRepository(prefs, userService)
     }
 
     @Singleton
