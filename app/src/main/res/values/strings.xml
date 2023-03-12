@@ -21,4 +21,5 @@
     <string name="dialog_movie_manage_hint_image">Movie Image Url</string>
     <string name="dialog_movie_manage_hint_url">Movie Video Url</string>
     <string name="dialog_movie_manage_title">Edit Movie</string>
+    <string name="dialog_add_movie_title">Add Movie</string>
 </resources>

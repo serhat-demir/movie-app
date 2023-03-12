@@ -31,6 +31,7 @@ class UserViewModel @Inject constructor(private val apiCallback: ApiCallback, pr
             val response = mRepo.addMovie(movie_name, movie_image, movie_url)
             if (response.isSuccessful) {
                 getMovies()
+
             } else {
                 apiCallback.onError(response.code(), response.body()?.message ?: response.message())
             }

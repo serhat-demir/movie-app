@@ -29,6 +29,7 @@ class UserFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user, container, false)
+        binding.userFragment = this
         (requireActivity() as MainActivity).binding.toolbar.title = getString(R.string.title_user)
 
         createMenu()
@@ -62,6 +63,22 @@ class UserFragment : Fragment() {
                 return true
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    fun addMovie() {
+        val dialogMovieManage = LayoutInflater.from(context).inflate(R.layout.dialog_movie_manage, null)
+        val txtMovieName = dialogMovieManage.findViewById<EditText>(R.id.dialogMovieManageTxtName)
+        val txtMovieImage = dialogMovieManage.findViewById<EditText>(R.id.dialogMovieManageTxtImage)
+        val txtMovieUrl = dialogMovieManage.findViewById<EditText>(R.id.dialogMovieManageTxtUrl)
+
+        val alertDialog  = AlertDialog.Builder(requireContext())
+        alertDialog.setTitle(getString(R.string.dialog_add_movie_title))
+        alertDialog.setView(dialogMovieManage)
+        alertDialog.setPositiveButton(getString(R.string.btn_save)) { _, _ ->
+            viewModel.addMovie(txtMovieName.text.toString().trim(), txtMovieImage.text.toString().trim(), txtMovieUrl.text.toString().trim())
+        }
+        alertDialog.setNegativeButton(getString(R.string.btn_cancel), null)
+        alertDialog.create().show()
     }
 
     private fun changePassword() {
