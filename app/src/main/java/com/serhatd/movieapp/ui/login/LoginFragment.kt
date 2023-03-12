@@ -32,15 +32,21 @@ class LoginFragment : Fragment() {
 
         createMenu()
         initObservers()
+        autoLogin()
         return binding.root
+    }
+
+    private fun autoLogin() {
+        val user = viewModel.getCurrentSession()
+        user?.let {
+            viewModel.login(user.user_name, user.user_password)
+        }
     }
 
     private fun initObservers() {
         viewModel.navObserver.observe(viewLifecycleOwner) {
             it?.let {
-                // login to user fragment
-                // Navigation.findNavController(binding.textInputLayout).navigate()
-                Toast.makeText(requireContext(), "Login ok", Toast.LENGTH_SHORT).show()
+                Navigation.findNavController(binding.textInputLayout).navigate(R.id.loginToUser)
             }
         }
     }

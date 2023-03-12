@@ -10,5 +10,5 @@ data class ApiResponseWithData<T>(
     var message: String,
 
     @SerializedName("data")
-    var data: T
+    var data: T?
 )

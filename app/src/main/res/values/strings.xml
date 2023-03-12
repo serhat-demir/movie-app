@@ -9,4 +9,5 @@
     <string name="hint_password">Password</string>
     <string name="btn_login">Login</string>
     <string name="title_user">Manage Movies</string>
+    <string name="hint_new_password">New password</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.serhatd.movieapp.ui.login
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,12 +19,22 @@ class LoginViewModel @Inject constructor(private val prefs: SharedPrefs, private
         viewModelScope.launch {
             val response = uRepo.login(user_name, user_password)
             if (response.isSuccessful && response.body()!!.data != null) {
-                setCurrentSession(response.body()!!.data)
+                setCurrentSession(response.body()!!.data!!)
                 navObserver.value = true
             } else {
                 apiCallback.onError(response.code(), response.body()?.message ?: response.message())
             }
         }
+    }
+
+    fun getCurrentSession(): User? {
+        val user = User(
+            prefs.getSharedPreference(SharedPrefs.COL_USER_ID, "0").toInt(),
+            prefs.getSharedPreference(SharedPrefs.COL_USER_NAME, "0"),
+            prefs.getSharedPreference(SharedPrefs.COL_USER_PASSWORD, "0")
+        )
+
+        return if (user.user_id == 0) null else user
     }
 
     private fun setCurrentSession(user: User) {

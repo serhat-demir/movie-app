@@ -21,7 +21,6 @@ class MoviesViewModel @Inject constructor(private val apiCallback: ApiCallback, 
             if (response.isSuccessful) {
                 movies.value = response.body()!!.data!!
             } else {
-                Log.e("sa", "vm error")
                 apiCallback.onError(response.code(), response.body()?.message ?: response.message())
             }
         }
