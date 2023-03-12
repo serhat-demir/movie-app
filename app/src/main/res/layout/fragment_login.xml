@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable name="loginViewModel"
+            type="com.serhatd.movieapp.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,6 +63,7 @@
             android:layout_marginHorizontal="16dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            android:onClick="@{() -> loginViewModel.login(frgLoginTxtUsername.getText().toString().trim(), frgLoginTxtPassword.getText().toString().trim())}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
