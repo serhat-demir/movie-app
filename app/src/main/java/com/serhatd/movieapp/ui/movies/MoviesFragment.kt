@@ -1,12 +1,13 @@
 package com.serhatd.movieapp.ui.movies
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.Navigation
 import com.serhatd.movieapp.MainActivity
 import com.serhatd.movieapp.R
 import com.serhatd.movieapp.databinding.FragmentMoviesBinding
@@ -28,6 +29,7 @@ class MoviesFragment : Fragment() {
         (requireActivity() as MainActivity).binding.toolbar.visibility = View.VISIBLE
         (requireActivity() as MainActivity).binding.toolbar.title = getString(R.string.title_movies)
 
+        createMenu()
         initObservers()
         return binding.root
     }
@@ -40,5 +42,18 @@ class MoviesFragment : Fragment() {
         }
 
         viewModel.getMovies()
+    }
+
+    private fun createMenu() {
+        requireActivity().addMenuProvider(object: MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.menu_guest, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                Navigation.findNavController(binding.frgMoviesRecyclerView).navigate(R.id.moviesToLogin)
+                return true
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 }

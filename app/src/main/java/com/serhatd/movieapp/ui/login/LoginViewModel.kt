@@ -19,7 +19,7 @@ class LoginViewModel @Inject constructor(private val prefs: SharedPrefs, private
     fun login(user_name: String, user_password: String) {
         viewModelScope.launch {
             val response = uRepo.login(user_name, user_password)
-            if (response.isSuccessful) {
+            if (response.isSuccessful && response.body()!!.data != null) {
                 setCurrentSession(response.body()!!.data)
                 navObserver.value = true
             } else {

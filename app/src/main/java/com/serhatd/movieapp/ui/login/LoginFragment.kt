@@ -1,13 +1,13 @@
 package com.serhatd.movieapp.ui.login
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import com.serhatd.movieapp.MainActivity
 import com.serhatd.movieapp.R
@@ -30,6 +30,7 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = viewModel
         (requireActivity() as MainActivity).binding.toolbar.title = getString(R.string.title_login)
 
+        createMenu()
         initObservers()
         return binding.root
     }
@@ -42,5 +43,17 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Login ok", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun createMenu() {
+        requireActivity().addMenuProvider(object: MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                // menu.clear()
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return false
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 }
